@@ -8,7 +8,6 @@ router.get('/', (req, res) =>{
     console.log(req.method, req.originalUrl)
     const {user} = req.query;
     res.send({
-        author:'Jamaludin Saputra',
         status:'Successfully',
         message: 'Welcome to Express Js with Eduwork',
         user
@@ -20,19 +19,18 @@ router.get('/product/:tag', (req, res)=>{
     res.json({product, tag})
     });
 
-router.post('/category/',upload.single('img'), (res, req) => {
+router.post('/categories',upload.single('img'), (req, res) => {
    const {name, category, value} = req.body
    const img = req.file;
    if (img){
-        const target = path.join(__dirname, 'uploads', img.originalUrl);
+        const target = path.join(__dirname,'uploads', img.originalname);
         fs.renameSync(img.path,target);
+        res.json({
+            name,
+            category,
+            value,
+            img
+           })
    }
-   res.json({
-    name,
-    category,
-    value,
-    img
-   })
 });
-
 module.exports = router;
