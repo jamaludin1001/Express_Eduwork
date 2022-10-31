@@ -14,12 +14,13 @@ router.get('/', (req, res) =>{
     });
 });
 
-router.get('/product/:tag', (req, res)=>{
-    const {product, tag} = req.params;
-    res.json({product, tag})
+router.get('/product/:id', (req, res)=>{
+    res.json({
+        id: req.params.id 
     });
+});
 
-router.post('/categories',upload.single('img'), (req, res) => {
+router.post('/product',upload.single('img'), (req, res) => {
    const {name, category, value} = req.body
    const img = req.file;
    if (img){
@@ -33,4 +34,10 @@ router.post('/categories',upload.single('img'), (req, res) => {
            })
    }
 });
+
+router.get('/categories/:tag', (req, res)=>{
+    const {categories, tag} = req.params;
+    res.json({categories, tag})
+    });
+    
 module.exports = router;
