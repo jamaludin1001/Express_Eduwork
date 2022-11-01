@@ -18,6 +18,11 @@ app.use((req, res, next) => {
   });
   next();
 });
-app.listen(process.env.PORT || 5000, () =>
-  console.log("Server: http://127.0.0.1:" + process.env.PORT || 5000)
-);
+app.listen(process.env.PORT ? process.env.PORT : 5000, () => {
+  var port = process.env.PORT ? process.env.PORT : 5000;
+  console.log("Server: http://127.0.0.1:" + port);
+});
+
+// di heroku ada environment variable PORT
+// heroku ada variable PORT = 34534
+// process.env.PORT itu adalah cara manggil variable PORT yang ada di heroku
