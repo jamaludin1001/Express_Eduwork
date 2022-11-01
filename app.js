@@ -18,4 +18,6 @@ app.use((req, res, next) => {
   });
   next();
 });
-app.listen(8080, () => console.log("Server: http://127.0.0.1:8080"));
+app.listen(process.env.PORT || 5000, () =>
+  console.log("Server: http://127.0.0.1:" + process.env.PORT || 5000)
+);
