@@ -48,7 +48,7 @@ const index = async (req, res) => {
   if (search) {
     exec = {
       where: {
-        name: {
+        nama_produk: {
           [Op.like]: `%${search}%`,
         },
       },
