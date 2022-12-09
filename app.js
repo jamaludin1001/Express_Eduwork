@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const productRouter = require("./app/product/router");
+const productRouterV2 = require("./app/product_v2/routers");
 const logger = require ("morgan");
 
 app.use(logger('dev'));
@@ -9,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/public", express.static(path.join(__dirname, "uploads")));
 app.use("/api/v1", productRouter);
+app.use("/api/v2", productRouterV2);
 app.use((req, res, next) => {
   console.log(req.method, req.originalUrl);
   res.status(404);

@@ -2,11 +2,11 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
 {
-  database: 'latihan_eduwork', 
+  database: 'db_sequelize', 
   username: 'root',
-  password: 'root',
+  password: '',
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
 });
 
 (async () => {
