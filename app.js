@@ -20,8 +20,8 @@ app.use((req, res, next) => {
   });
   next();
 });
-app.listen(process.env.PORT ? process.env.PORT : 5000, () => {
-  var port = process.env.PORT ? process.env.PORT : 5000;
+app.listen(process.env.PORT ? process.env.PORT : 3000, () => {
+  var port = process.env.PORT ? process.env.PORT : 3000;
   console.log("Server: http://127.0.0.1:" + port);
 });
 

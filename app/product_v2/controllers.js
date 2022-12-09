@@ -81,7 +81,7 @@ const update = async (req, res) => {
       harga,
       stok,
       status,
-      image_url: `http://localhost:5000/public/${image_url.originalname}`,
+      image_url: `http://localhost:3000/public/${image_url.originalname}`,
     };
   } else {
     dataQuery = { users_id, nama_produk, harga, stok, status };
