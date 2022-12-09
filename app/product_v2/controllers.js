@@ -4,22 +4,22 @@ const fs = require("fs");
 const path = require("path");
 
 const store = async (req, res) => {
-  const { users_id, name, price, stock, status } = req.body;
-  const image = req.file;
+  const { users_id, nama_produk, harga, stok, status } = req.body;
+  const image_url = req.file;
 
-  if (image) {
-    const target = path.join(__dirname, "../../uploads", image.originalname);
-    fs.renameSync(image.path, target);
+  if (image_url) {
+    const target = path.join(__dirname, "../../uploads", image_url.originalname);
+    fs.renameSync(image_url.path, target);
   }
   try {
     await Product.sync();
     await Product.create({
       users_id,
-      name,
-      price,
-      stock,
+      nama_produk,
+      harga,
+      stok,
       status,
-      image_url: `http://localhost:3000/public/${image.originalname}`,
+      image_url: `http://localhost:5000/public/${image_url.originalname}`,
     });
     res.json({
       message: "Product Created",
@@ -65,10 +65,10 @@ const index = async (req, res) => {
 
 const update = async (req, res) => {
   const { users_id, nama_produk, harga, stok, status } = req.body;
-  const image = req.file;
+  const image_url = req.file;
   let dataQuery = {};
 
-  if (image) {
+  if (image_url) {
     const target = path.join(
       __dirname,
       "../../uploads",
@@ -81,7 +81,7 @@ const update = async (req, res) => {
       harga,
       stok,
       status,
-      image_url: `http://localhost:3000/public/${image_url.originalname}`,
+      image_url: `http://localhost:5000/public/${image_url.originalname}`,
     };
   } else {
     dataQuery = { users_id, nama_produk, harga, stok, status };

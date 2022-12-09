@@ -30,6 +30,14 @@ const Product = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+    updatedAt: {
+    type: DataTypes.TIME,
+    allowNull: false,
+    },
   },
   {
     // Other model options go here
