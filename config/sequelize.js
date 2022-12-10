@@ -2,11 +2,12 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
 {
-  database: 'db_sequelize', 
+  database: 'railway', 
   username: 'root',
-  password: '',
-  host: 'localhost',
-  port: '',
+  password: 'zxaiAk2uJB6DLdL48uow',
+  host: 'containers-us-west-150.railway.app',
+  port: '6805',
+  url: 'mysql://${{ MYSQLUSER }}:${{ MYSQLPASSWORD }}@${{ MYSQLHOST }}:${{ MYSQLPORT }}/${{ MYSQLDATABASE }}',
   dialect: 'mysql',
 });
 
